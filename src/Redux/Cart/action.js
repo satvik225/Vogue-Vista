@@ -4,7 +4,7 @@ import { setToast } from "../../utils/Other";
 
 const getCartItems = (userId) => (dispatch) => {
   dispatch({ type: types.GET_CART_ITEMS_REQUEST });
-  return axios(`http://localhost:8080/cart/${userId}`, {
+  return axios(`https://vogue-vista-server.onrender.com/cart/${userId}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -24,7 +24,7 @@ const getCartItems = (userId) => (dispatch) => {
 const postCartItems = (item, userId) => (dispatch) => {
   dispatch({ type: types.POST_CART_ITEMS_REQUEST });
   return axios
-    .post(`http://localhost:8080/cart/${userId}`, item)
+    .post(`https://vogue-vista-server.onrender.com/cart/${userId}`, item)
     .then((res) => {
       return dispatch({ type: types.POST_CART_ITEMS_SUCCESS });
     })
@@ -36,7 +36,7 @@ const postCartItems = (item, userId) => (dispatch) => {
 const removeCartItem = (userId, productId, toast) => (dispatch) => {
   dispatch({ type: types.REMOVE_CART_ITEM_REQUEST });
   return axios
-    .delete(`http://localhost:8080/cart/${userId}/${productId}`)
+    .delete(`https://vogue-vista-server.onrender.com/cart/${userId}/${productId}`)
     .then((res) => {
       setToast(toast, "Item Removed", "success");
       return dispatch({ type: types.REMOVE_CART_ITEM_SUCCESS });

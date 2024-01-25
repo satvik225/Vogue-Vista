@@ -58,7 +58,7 @@ const ProductsDetails = () => {
 
   const fetchProductsDetail = async () => {
     const res = await axios
-      .get(`http://localhost:8080/products/${productId}`)
+      .get(`https://vogue-vista-server.onrender.com/products/${productId}`)
       .catch((err) => {
         console.log(err);
       });

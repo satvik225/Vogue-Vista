@@ -6,7 +6,7 @@ import * as data from "./actionType";
 const signUp = (payload, toast, navigate) => (dispatch) => {
   dispatch({ type: data.SIGNUP_FAILURE });
   return axios
-    .post("http://localhost:8080/auth/signup", payload)
+    .post("https://vogue-vista-server.onrender.com/auth/signup", payload)
     .then((r) => {
       console.log(r);
       setToast(toast, "Signup Successful", "success");
@@ -22,7 +22,7 @@ const signUp = (payload, toast, navigate) => (dispatch) => {
 const LoginUser = (payload, toast, navigate) => async (dispatch) => {
   dispatch({ type: data.LOGIN_REQUEST });
   return await axios
-    .post("http://localhost:8080/auth/login", payload)
+    .post("https://vogue-vista-server.onrender.com/auth/login", payload)
     .then((r) => {
       localStorage.setItem("token", r.data.token);
       localStorage.setItem("userId", r.data._id);

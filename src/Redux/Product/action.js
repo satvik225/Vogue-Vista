@@ -3,7 +3,7 @@ import * as types from "./actionTypes";
 
 export const getProducts = (params) => (dispatch) => {
   dispatch({ type: types.GET_PRODUCTS_REQUEST });
-  return axios("http://localhost:8080/products", params)
+  return axios("https://vogue-vista-server.onrender.com/products", params)
     .then((res) => {
       dispatch({ type: types.GET_PRODUCTS_SUCCESS, payload: res.data });
     })
@@ -15,7 +15,7 @@ export const getProducts = (params) => (dispatch) => {
 export const getShoesProducts = () => (dispatch) => {
   // console.log(params)
   dispatch({ type: types.GET_PRODUCTS_REQUEST });
-  return axios("http://localhost:8080/products/shoes")
+  return axios("https://vogue-vista-server.onrender.com/products/shoes")
     .then((res) => {
       dispatch({ type: types.GET_PRODUCTS_SUCCESS, payload: res.data });
     })
@@ -27,7 +27,7 @@ export const getShoesProducts = () => (dispatch) => {
 export const getDressesProducts = () => (dispatch) => {
   // console.log(params)
   dispatch({ type: types.GET_PRODUCTS_REQUEST });
-  return axios("http://localhost:8080/products/dresses")
+  return axios("https://vogue-vista-server.onrender.com/products/dresses")
     .then((res) => {
       dispatch({ type: types.GET_PRODUCTS_SUCCESS, payload: res.data });
     })
@@ -39,7 +39,7 @@ export const getDressesProducts = () => (dispatch) => {
 export const deleteProducts = (id) => (dispatch) => {
   dispatch({ type: types.DELETE_PRODUCTS_REQUEST });
   return axios
-    .delete(`http://localhost:8080/products/${id}`)
+    .delete(`https://vogue-vista-server.onrender.com/products/${id}`)
     .then((res) => {
       dispatch({ type: types.DELETE_PRODUCTS_SUCCESS });
     })
@@ -51,7 +51,7 @@ export const deleteProducts = (id) => (dispatch) => {
 export const updateProducts = (id, payload) => (dispatch) => {
   dispatch({ type: types.UPDATE_PRODUCTS_REQUEST });
   return axios
-    .patch(`http://localhost:8080/products/${id}`, payload)
+    .patch(`https://vogue-vista-server.onrender.com/products/${id}`, payload)
     .then((res) => {
       dispatch({ type: types.UPDATE_PRODUCTS_SUCCESS });
     })
